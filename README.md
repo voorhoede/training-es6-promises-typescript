@@ -1,6 +1,6 @@
 # Training ES6, Promises and TypeScript
 
-## ES6: Arrow functions
+## ES6: Object literal upgrades
 
 ### Install
 
@@ -9,6 +9,6 @@ $ npm install
 $ npm start
 ```
 
-### Solution
+### Exercise
 
-See [comparison](https://github.com/voorhoede/training-es6-promises-typescript/compare/02-arrow-functions-exercise...02-arrow-functions-solution).
+Update all object literals in [index.js](./index.js).

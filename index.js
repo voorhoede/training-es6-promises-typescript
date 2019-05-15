@@ -2,7 +2,8 @@
  *
  * Exercise!
  *
- * Convert all functions to arrow functions where appropriate
+ * Update all object literals, please note: you won't find computed properties
+ * in this file.
  *
  */
 const express = require('express');
