@@ -1,6 +1,6 @@
 # Training ES6, Promises and TypeScript
 
-## ES6: Object literal upgrades
+## ES6: Destructuring
 
 ### Install
 
@@ -9,6 +9,6 @@ $ npm install
 $ npm start
 ```
 
-### Solution
+### Exercise
 
-See [comparison](https://github.com/voorhoede/training-es6-promises-typescript/compare/03-object-literal-upgrades-exercise...03-object-literal-upgrades-solution?diff=unified).
+Destructure values where possible in [index.js](./index.js).
