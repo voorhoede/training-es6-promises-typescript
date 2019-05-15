@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Runners!</title>
+</head>
+<body>
+
+	<h1>Runners!</h1>
+
+	<form action="/compare">
+		<table width="100%">
+			<thead>
+				<tr>
+					<th></th>
+					<th align="left">Name</th>
+					<th align="left">Total runs</th>
+					<th align="left">Average distance</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for runner in runners %}
+					<tr>
+						<td><input type="checkbox" name="id" value="{{ runner.id }}"></td>
+						<td><a href="/runner/{{ runner.id }}">{{ runner.name }}</a></td>
+						<td>{{ runner.getTotalRuns() }}</td>
+						<td>{{ runner.getAverageDistance() }} km</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		<input type="submit" value="compare"/>
+	</form>
+
+	<p>
+	<strong>Team:</strong><br />
+	Captain: {{ runningTeam.captain }}<br />
+	Players: {% for player in runningTeam.players%}{{player}}, {% endfor %}
+	</p>
+
+	<a href="/totals">Totals!</a>
+</body>
+</html>

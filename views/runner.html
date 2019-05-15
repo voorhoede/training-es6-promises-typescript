@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ runner.name }} | Runners!</title>
+</head>
+<body>
+
+	<h1><a href="/">Runners!</a></h1>
+	
+	<h2>{{ runner.name }}</h2>
+
+	<p>Total runs: {{ runner.getTotalRuns() }}</p>
+
+	<p>Average distance: {{ runner.getAverageDistance() }} km</p>
+
+	<p>Runs:</p>
+	<ul>
+		{% for run in runner.runs %}
+			<li>{{ run }} km</li>
+		{% endfor %}
+	</ul>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+{
+	"runnersTeam": [1, 2, 3, 4],
+	"runners": [
+		{
+			"id": 1,
+			"name": "Alice",
+			"runs": [5.5, 3, 4.25, 6]
+		},
+		{
+			"id": 2,
+			"name": "Bob",
+			"runs": [2, 1.25, 3, 2.75, 2.25, 1]
+		},
+		{
+			"id": 3,
+			"name": "Charles",
+			"runs": [7.25, 10, 25.4]
+		},
+		{
+			"id": 4,
+			"name": "Demi",
+			"runs": [0.5]
+		}
+	],
+	"swimmersTeam": [1, 2, 3, 4],
+	"swimmers": [
+		{
+			"id": 1,
+			"name": "Edward",
+			"lanes": [5.5, 3, 4.25, 6]
+		},
+		{
+			"id": 2,
+			"name": "Frank",
+			"lanes": [2, 1.25, 3, 2.75, 2.25, 1]
+		},
+		{
+			"id": 3,
+			"name": "George",
+			"lanes": [7.25, 10, 25.4]
+		},
+		{
+			"id": 4,
+			"name": "Henry",
+			"lanes": [0.5]
+		}
+	]
+}

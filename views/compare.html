@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Runners!</title>
+	<style>
+		ul {
+			padding-left: 0;
+			margin-top: 0;
+		}
+	</style>
+</head>
+<body>
+	
+	<h1><a href="/">Runners!</a></h1>
+
+	<h2>{{ compare.runnerA.name }} VS {{ compare.runnerB.name }}</h2>
+
+	<table width="100%">
+		<thead>
+			<tr>
+				<th></th>
+				<th align="left">{{ compare.runnerA.name }}</th>
+				<th align="left">{{ compare.runnerB.name }}</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Total runs:</td>
+				<td>{{ compare.runnerA.getTotalRuns() }}</td>
+				<td>{{ compare.runnerB.getTotalRuns() }}</td>
+			</tr>
+			<tr>
+				<td>Average distance:</td>
+				<td>{{ compare.runnerA.getAverageDistance() }} km</td>
+				<td>{{ compare.runnerB.getAverageDistance() }} km</td>
+			</tr>
+			<tr valign="top">
+				<td>Runs:</td>
+				<td>
+					<ul>
+						{% for run in compare.runnerA.runs %}
+							<li>{{ run }} km</li>
+						{% endfor %}
+					</ul>
+				</td>
+				<td><ul>
+						{% for run in compare.runnerB.runs %}
+							<li>{{ run }} km</li>
+						{% endfor %}
+					</ul></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
