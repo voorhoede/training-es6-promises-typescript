@@ -10,35 +10,25 @@ const nunjucks = require('nunjucks');
 const app = express();
 const athletes = require('./athletes.json');
 
-const add = function (a, b) {
-  return a + b;
-};
+const add = (a, b) => a + b;
 
 const data = {
   runnersData: athletes.runners,
   swimmersData: athletes.swimmers,
   runnersTeamNames: getTeamNames(athletes.runnersTeam, athletes.runners),
   get: function() {
-    const allRuns = this.runnersData.reduce(function(array, athlete) {
-      return array.concat(athlete.runs);
-    }, []);
-    const allLanes = this.swimmersData.reduce(function(array, athlete) {
-      return array.concat(athlete.lanes);
-    }, []);
+    const allRuns = this.runnersData.reduce((array, athlete) => array.concat(athlete.runs), []);
+    const allLanes = this.swimmersData.reduce((array, athlete) => array.concat(athlete.lanes), []);
     const allEvents = [].concat(allRuns).concat(allLanes);
     const totalDistanceRun = allRuns.reduce(add, 0);
     const totalDistanceLanes = allLanes.reduce(add, 0);
     const totalDistanceEvents = allEvents.reduce(add, 0);
 
-    const getRunningTeam = function() {
-      return getTeam(this.runnersTeamNames)
-    };
+    const getRunningTeam = () => getTeam(this.runnersTeamNames);
 
     return {
-      runningTeam: getRunningTeam.call(this),
-      runners: this.runnersData.map(function(athlete) {
-        return runnerData(athlete.id, athlete.name, athlete.runs)
-      }),
+      runningTeam: getRunningTeam(),
+      runners: this.runnersData.map(athlete => runnerData(athlete.id, athlete.name, athlete.runs)),
       totalsRunners: {
         allRuns: allRuns,
         totalDistanceRun: totalDistanceRun
@@ -70,9 +60,7 @@ function runnerData(id, name, runs) {
 }
 
 function getTeamNames(team, athletes) {
-  return team.map(function(member) {
-    return getAthlete(athletes, member).name;
-  })
+  return team.map(member => getAthlete(athletes, member).name)
 }
 
 function getTeam(team) {
@@ -160,24 +148,14 @@ nunjucks.configure('views', {
 
 app.use(getDataMW);
 
-app.get('/', function(req, res) {
-  res.render('index.html', res.data);
-});
+app.get('/', (req, res) => res.render('index.html', res.data));
 
 app.use('/runner/:id', getRunnerMW);
-app.get('/runner/:id', function(req, res) {
-  res.render('runner.html', res.data);
-});
+app.get('/runner/:id', (req, res) => res.render('runner.html', res.data));
 
 app.use('/compare', getCompareRunnersMW);
-app.get('/compare', function(req, res) {
-  res.render('compare.html', res.data);
-});
+app.get('/compare', (req, res) => res.render('compare.html', res.data));
 
-app.get('/totals', function(req, res) {
-  res.render('totals.html', res.data);
-});
+app.get('/totals', (req, res) => res.render('totals.html', res.data));
 
-app.listen(3000, function() {
-  console.log('App listening on port 3000!');
-});
+app.listen(3000, () => console.log('App listening on port 3000!'));
