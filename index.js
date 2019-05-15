@@ -17,7 +17,7 @@ const data = {
   runnersData: athletes.runners,
   swimmersData: athletes.swimmers,
   runnersTeamNames: getTeamNames(athletes.runnersTeam, athletes.runners),
-  get: function() {
+  get() {
     const allRuns = this.runnersData.reduce((array, athlete) => array.concat(athlete.runs), []);
     const allLanes = this.swimmersData.reduce((array, athlete) => array.concat(athlete.lanes), []);
     const allEvents = [].concat(allRuns).concat(allLanes);
@@ -31,16 +31,16 @@ const data = {
       runningTeam: getRunningTeam(),
       runners: this.runnersData.map(athlete => runnerData(athlete.id, athlete.name, athlete.runs)),
       totalsRunners: {
-        allRuns: allRuns,
-        totalDistanceRun: totalDistanceRun
+        allRuns,
+        totalDistanceRun
       },
       totalSwimmers: {
-        allLanes: allLanes,
-        totalDistanceLanes: totalDistanceLanes
+        allLanes,
+        totalDistanceLanes
       },
       totalOverall: {
-        allEvents: allEvents,
-        totalDistanceEvents: totalDistanceEvents
+        allEvents,
+        totalDistanceEvents
       }
     }
   }
@@ -48,13 +48,13 @@ const data = {
 
 function runnerData(id, name, runs) {
   return {
-    id: id,
-    name: name,
-    runs: runs,
-    getAverageDistance: function() {
+    id,
+    name,
+    runs,
+    getAverageDistance() {
       return calculateAverageDistance.apply(null, this.runs);
     },
-    getTotalRuns: function() {
+    getTotalRuns() {
       return this.runs.length;
     }
   }
@@ -67,10 +67,7 @@ function getTeamNames(team, athletes) {
 function getTeam(team) {
   const captain = team[0];
   const players = team.slice(1);
-  return {
-    captain: captain,
-    players: players
-  }
+  return { captain, players }
 }
 
 function calculateAverageDistance() {
@@ -129,10 +126,7 @@ function getCompareRunnersMW(req, res, next) {
     return;
   }
 
-  res.data.compare = {
-    runnerA: runnerA,
-    runnerB: runnerB
-  };
+  res.data.compare = { runnerA, runnerB };
 
   next();
 }
