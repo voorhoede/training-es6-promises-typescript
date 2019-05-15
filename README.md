@@ -9,6 +9,6 @@ $ npm install
 $ npm start
 ```
 
-### Exercise
+### Solution
 
-Convert all function to arrow functions where appropriate in [index.js](./index.js).
+See [comparison](https://github.com/voorhoede/training-es6-promises-typescript/compare/02-arrow-functions-exercise...02-arrow-functions-solution).
