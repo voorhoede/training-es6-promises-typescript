@@ -1,6 +1,6 @@
 # Training ES6, Promises and TypeScript
 
-## ES6: `let` / `const`
+## ES6: Arrow functions
 
 ### Install
 
@@ -9,6 +9,6 @@ $ npm install
 $ npm start
 ```
 
-### Solution
+### Exercise
 
-See [comparison](https://github.com/voorhoede/training-es6-promises-typescript/compare/01-let-const-exercise...01-let-const-solution).
+Convert all function to arrow functions where appropriate in [index.js](./index.js).

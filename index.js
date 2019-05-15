@@ -2,7 +2,7 @@
  *
  * Exercise!
  *
- * Add let and const where appropriate and take advantage of block scoping
+ * Convert all functions to arrow functions where appropriate
  *
  */
 const express = require('express');
