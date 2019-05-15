@@ -9,6 +9,6 @@ $ npm install
 $ npm start
 ```
 
-### Exercise
+### Solution
 
-Use spread and rest where possible in [index.js](./index.js).
+See [comparison](https://github.com/voorhoede/training-es6-promises-typescript/compare/05-spread-rest-exercise...05-spread-rest-solution).
