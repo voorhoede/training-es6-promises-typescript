@@ -8,14 +8,14 @@
 const express = require('express');
 const nunjucks = require('nunjucks');
 const app = express();
-const athletes = require('./athletes.json');
+const { runners: runnersData, runnersTeam, swimmers: swimmersData } = require('./athletes.json');
 
 const add = (a, b) => a + b;
 
 const data = {
-  runnersData: athletes.runners,
-  swimmersData: athletes.swimmers,
-  runnersTeamNames: getTeamNames(athletes.runnersTeam, athletes.runners),
+  runnersData,
+  swimmersData,
+  runnersTeamNames: getTeamNames(runnersTeam, runnersData),
   get() {
     const allRuns = this.runnersData.reduce((array, athlete) => array.concat(athlete.runs), []);
     const allLanes = this.swimmersData.reduce((array, athlete) => array.concat(athlete.lanes), []);
@@ -28,7 +28,7 @@ const data = {
 
     return {
       runningTeam: getRunningTeam(),
-      runners: this.runnersData.map(athlete => runnerData(athlete.id, athlete.name, athlete.runs)),
+      runners: this.runnersData.map(runnerData),
       totalsRunners: {
         allRuns,
         totalDistanceRun
@@ -45,7 +45,7 @@ const data = {
   }
 };
 
-function runnerData(id, name, runs) {
+function runnerData({id, name, runs} = {}) {
   return {
     id,
     name,
@@ -95,9 +95,8 @@ function getRunnerMW(req, res, next) {
 
 function getCompareRunnersMW(req, res, next) {
   const queryIds = (req.query.id) ? req.query.id : [];
-  const runnerAId = queryIds[0];
-  const runnerBId = queryIds[1];
-  const runners = res.data.runners;
+  const [runnerAId, runnerBId] = queryIds;
+  const { runners } = res.data;
   let runnerA, runnerB;
 
   if (!runnerAId || !runnerBId) {
