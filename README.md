@@ -9,6 +9,6 @@ $ npm install
 $ npm start
 ```
 
-### Exercise
+### Solution
 
-Add `let` and `const` in [index.js](./index.js) where appropriate and take advantage of block scoping
+See [comparison](https://github.com/voorhoede/training-es6-promises-typescript/compare/01-let-const-exercise...01-let-const-solution).
