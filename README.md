@@ -9,6 +9,6 @@ $ npm install
 $ npm start
 ```
 
-### Exercise
+### Solution
 
-Destructure values where possible in [index.js](./index.js).
+See [comparison](https://github.com/voorhoede/training-es6-promises-typescript/compare/04-destructuring-exercise...04-destructuring-solution).
