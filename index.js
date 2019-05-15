@@ -5,33 +5,32 @@
  * Add let and const where appropriate and take advantage of block scoping
  *
  */
+const express = require('express');
+const nunjucks = require('nunjucks');
+const app = express();
+const athletes = require('./athletes.json');
 
-var express = require('express');
-var nunjucks = require('nunjucks');
-var app = express();
-var athletes = require('./athletes.json');
-
-var add = function (a, b) {
+const add = function (a, b) {
   return a + b;
 };
 
-var data = {
+const data = {
   runnersData: athletes.runners,
   swimmersData: athletes.swimmers,
   runnersTeamNames: getTeamNames(athletes.runnersTeam, athletes.runners),
   get: function() {
-    var allRuns = this.runnersData.reduce(function(array, athlete) {
+    const allRuns = this.runnersData.reduce(function(array, athlete) {
       return array.concat(athlete.runs);
     }, []);
-    var allLanes = this.swimmersData.reduce(function(array, athlete) {
+    const allLanes = this.swimmersData.reduce(function(array, athlete) {
       return array.concat(athlete.lanes);
     }, []);
-    var allEvents = [].concat(allRuns).concat(allLanes);
-    var totalDistanceRun = allRuns.reduce(add, 0);
-    var totalDistanceLanes = allLanes.reduce(add, 0);
-    var totalDistanceEvents = allEvents.reduce(add, 0);
+    const allEvents = [].concat(allRuns).concat(allLanes);
+    const totalDistanceRun = allRuns.reduce(add, 0);
+    const totalDistanceLanes = allLanes.reduce(add, 0);
+    const totalDistanceEvents = allEvents.reduce(add, 0);
 
-    var getRunningTeam = function() {
+    const getRunningTeam = function() {
       return getTeam(this.runnersTeamNames)
     };
 
@@ -77,8 +76,8 @@ function getTeamNames(team, athletes) {
 }
 
 function getTeam(team) {
-  var captain = team[0];
-  var players = team.slice(1);
+  const captain = team[0];
+  const players = team.slice(1);
   return {
     captain: captain,
     players: players
@@ -86,16 +85,16 @@ function getTeam(team) {
 }
 
 function calculateAverageDistance() {
-  var events = [].slice.call(arguments);
-  var totalDistance = events.reduce(add, 0);
-  var average = totalDistance / events.length;
+  const events = [].slice.call(arguments);
+  const totalDistance = events.reduce(add, 0);
+  const average = totalDistance / events.length;
   return Math.round(average * 100) / 100;
 }
 
 function getAthlete(athletes, id) {
-  var athlete;
+  let athlete;
 
-  for (var i = 0; i < athletes.length; i++) {
+  for (let i = 0; i < athletes.length; i++) {
     if (athletes[i].id === id) {
       athlete = athletes[i];
     }
@@ -110,18 +109,18 @@ function getRunnerMW(req, res, next) {
 }
 
 function getCompareRunnersMW(req, res, next) {
-  var queryIds = (req.query.id) ? req.query.id : [];
-  var runnerAId = queryIds[0];
-  var runnerBId = queryIds[1];
-  var runners = res.data.runners;
-  var runnerA, runnerB;
+  const queryIds = (req.query.id) ? req.query.id : [];
+  const runnerAId = queryIds[0];
+  const runnerBId = queryIds[1];
+  const runners = res.data.runners;
+  let runnerA, runnerB;
 
   if (!runnerAId || !runnerBId) {
     res.status(400).end('I need two id\'s');
     return;
   }
 
-  for (var i = 0; i < runners.length; i++) {
+  for (let i = 0; i < runners.length; i++) {
     if (runners[i].id === parseInt(runnerAId, 10)) {
       runnerA = runners[i];
     }
@@ -131,9 +130,9 @@ function getCompareRunnersMW(req, res, next) {
     return;
   }
 
-  for (var j = 0; j < runners.length; j++) {
-    if (runners[j].id === parseInt(runnerBId, 10)) {
-      runnerB = runners[j];
+  for (let i = 0; i < runners.length; i++) {
+    if (runners[i].id === parseInt(runnerBId, 10)) {
+      runnerB = runners[i];
     }
   }
   if (!runnerB) {
