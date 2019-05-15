@@ -2,8 +2,7 @@
  *
  * Exercise!
  *
- * Update all object literals, please note: you won't find computed properties
- * in this file.
+ * Destructure values where possible
  *
  */
 const express = require('express');
