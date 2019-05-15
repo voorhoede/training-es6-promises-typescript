@@ -2,7 +2,7 @@
  *
  * Exercise!
  *
- * Destructure values where possible
+ * Use spread and rest where possible
  *
  */
 const express = require('express');

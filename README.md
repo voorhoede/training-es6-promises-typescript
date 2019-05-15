@@ -1,6 +1,6 @@
 # Training ES6, Promises and TypeScript
 
-## ES6: Destructuring
+## ES6: Spread and rest
 
 ### Install
 
@@ -9,6 +9,6 @@ $ npm install
 $ npm start
 ```
 
-### Solution
+### Exercise
 
-See [comparison](https://github.com/voorhoede/training-es6-promises-typescript/compare/04-destructuring-exercise...04-destructuring-solution).
+Use spread and rest where possible in [index.js](./index.js).
