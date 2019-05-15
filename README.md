@@ -9,6 +9,6 @@ $ npm install
 $ npm start
 ```
 
-### Exercise
+### Solution
 
-Update all object literals in [index.js](./index.js).
+See [comparison](https://github.com/voorhoede/training-es6-promises-typescript/compare/03-object-literal-upgrades-exercise...03-object-literal-upgrades-solution?diff=unified).
