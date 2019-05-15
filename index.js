@@ -17,9 +17,9 @@ const data = {
   swimmersData,
   runnersTeamNames: getTeamNames(runnersTeam, runnersData),
   get() {
-    const allRuns = this.runnersData.reduce((array, athlete) => [...array, ...athlete.runs], []);
-    const allLanes = this.swimmersData.reduce((array, athlete) => [...array, ...athlete.lanes], []);
-    const allEvents = [...allRuns, ...allLanes];
+    const allRuns = this.runnersData.reduce((array, athlete) => array.concat(athlete.runs), []);
+    const allLanes = this.swimmersData.reduce((array, athlete) => array.concat(athlete.lanes), []);
+    const allEvents = [].concat(allRuns).concat(allLanes);
     const totalDistanceRun = allRuns.reduce(add, 0);
     const totalDistanceLanes = allLanes.reduce(add, 0);
     const totalDistanceEvents = allEvents.reduce(add, 0);
@@ -51,7 +51,7 @@ function runnerData({id, name, runs} = {}) {
     name,
     runs,
     getAverageDistance() {
-      return calculateAverageDistance(...this.runs);
+      return calculateAverageDistance.apply(null, this.runs);
     },
     getTotalRuns() {
       return this.runs.length;
@@ -64,11 +64,13 @@ function getTeamNames(team, athletes) {
 }
 
 function getTeam(team) {
-  const [captain, ...players] = team;
+  const captain = team[0];
+  const players = team.slice(1);
   return { captain, players }
 }
 
-function calculateAverageDistance(...events) {
+function calculateAverageDistance() {
+  const events = [].slice.call(arguments);
   const totalDistance = events.reduce(add, 0);
   const average = totalDistance / events.length;
   return Math.round(average * 100) / 100;
