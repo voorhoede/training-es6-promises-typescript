@@ -1,12 +1,12 @@
 {
-  "name": "code-class-typescript",
+  "name": "training-es6-promises-typescript",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "tsc -w --noEmit"
   },
-  "author": "Peter Goes <petergoes@gmail.com>",
+  "author": "Declan Rek <declan@voorhoede.nl>",
   "license": "ISC",
   "dependencies": {
     "typescript": "3.2.2"
