@@ -18,7 +18,8 @@ button.onclick = function() {
     .then(meal => dinnerIsReady(meal))
     .then(meal => haveDinner(meal))
     .then(mess => cleanUp(mess))
-    .then(result => setMessage(result));
+    .then(result => setMessage(result))
+    .catch(message => setMessage(message))
 };
 
 function setMessage(message) {
