@@ -1,6 +1,6 @@
 # Training ES6, Promises and TypeScript
 
-## Promises: Promise.race
+## Typescript
 
 ### Install
 
@@ -8,7 +8,3 @@
 $ npm install
 $ npm start
 ```
-
-### Exercise
-
-getGroceriesFromMarketPlace() or getGroceriesFromStorage() and use whatever is fastest.
