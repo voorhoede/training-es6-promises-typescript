@@ -9,29 +9,31 @@ var groceryList = [
 ];
 
 button.onclick = function() {
-  getGroceries(groceryList, function(groceries) {
-    makeDinner(groceries, function(meal) {
-      dinnerIsReady(meal);
-    });
-  });
+  getGroceries(groceryList)
+    .then(groceries => makeDinner(groceries))
+    .then(meal => dinnerIsReady(meal));
 };
 
 function setMessage(message) {
   output.innerHTML = output.innerHTML + '<br><br>' + message;
 }
 
-function getGroceries(list, callback) {
+function getGroceries(list) {
   setMessage('Getting groceries: <br><br>' + list.join(',<br>'));
-  setTimeout(function(){
-    callback(list);
-  }, 2500, list);
+  return new Promise((resolve, reject) => {
+    setTimeout(function(){
+      resolve(list);
+    }, 2500, list);
+  });
 }
 
-function makeDinner(ingredients, callback) {
+function makeDinner(ingredients) {
   setMessage('Making dinner');
-  setTimeout(function(){
-    callback('Spaghetti Bolognese');
-  }, 2500);
+  return new Promise((resolve, reject) => {
+    setTimeout(function(){
+      resolve('Spaghetti Bolognese');
+    }, 2500);
+  });
 }
 
 function dinnerIsReady(meal) {
