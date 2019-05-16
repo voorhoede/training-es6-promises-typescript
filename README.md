@@ -9,6 +9,6 @@ $ npm install
 $ npm start
 ```
 
-### Exercise
+### Solution
 
-Clean up after.
+See [comparison](https://github.com/voorhoede/training-es6-promises-typescript/compare/07-promise-chaining-exercise...07-promise-chaining-solution?expand=1).
