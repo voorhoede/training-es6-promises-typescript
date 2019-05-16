@@ -12,7 +12,9 @@ button.onclick = function() {
   getGroceries(groceryList)
     .then(groceries => makeDinner(groceries))
     .then(meal => dinnerIsReady(meal))
-    .then(meal => haveDinner(meal));
+    .then(meal => haveDinner(meal))
+    .then(mess => cleanUp(mess))
+    .then(result => setMessage(result));
 };
 
 function setMessage(message) {
