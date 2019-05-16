@@ -9,6 +9,6 @@ $ npm install
 $ npm start
 ```
 
-### Exercise
+### Solution
 
-Tell mom if something is wrong
+See [comparison](https://github.com/voorhoede/training-es6-promises-typescript/compare/08-catch-exercise...08-catch-solution?expand=1).
