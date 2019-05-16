@@ -1,6 +1,6 @@
 # Training ES6, Promises and TypeScript
 
-## Promises: Promise chaining
+## Promises: Catch
 
 ### Install
 
@@ -9,6 +9,6 @@ $ npm install
 $ npm start
 ```
 
-### Solution
+### Exercise
 
-See [comparison](https://github.com/voorhoede/training-es6-promises-typescript/compare/07-promise-chaining-exercise...07-promise-chaining-solution?expand=1).
+Tell mom if something is wrong

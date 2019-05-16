@@ -24,6 +24,9 @@ function setMessage(message) {
 function getGroceries(list) {
   setMessage('Getting groceries: <br><br>' + list.join(',<br>'));
   return new Promise((resolve, reject) => {
+    if (document.getElementById('outOfSpaghetti').checked) {
+      reject('There\'s no of spaghetti!');
+    }
     setTimeout(function(){
       resolve(list);
     }, 2500, list);
@@ -56,6 +59,11 @@ function cleanUp(mess) {
     }, 2500);
   });
 
+}
+
+function tellMom(problem) {
+  setMessage('<strong style="color:red;"> MOM!!! ' + problem + '</strong>');
+  return Promise.resolve([]);
 }
 
 function dinnerIsReady(meal) {
