@@ -27,7 +27,7 @@ function getGroceries(list) {
   setMessage('Getting groceries: <br><br>' + list.join(',<br>'));
   return new Promise((resolve, reject) => {
     if (document.getElementById('outOfSpaghetti').checked) {
-      reject('There\'s no spaghetti!');
+      reject('There\'s no of spaghetti!');
     }
     setTimeout(function(){
       resolve(list);
@@ -36,11 +36,8 @@ function getGroceries(list) {
 }
 
 function makeDinner(ingredients) {
+  setMessage('Making dinner');
   return new Promise((resolve, reject) => {
-    if (!ingredients.length) {
-      return reject('<strong style="color:red;">I don\'t have any ingredients, I\'m getting pizza</strong>')
-    }
-    setMessage('Making dinner');
     setTimeout(function(){
       resolve('Spaghetti Bolognese');
     }, 2500);
@@ -53,6 +50,15 @@ function haveDinner(meal) {
     setTimeout(function(){
       resolve(['dirty plates', 'empty pan']);
     }, 2500);
+  });
+}
+
+function setTable() {
+  setMessage('Setting table');
+  return new Promise((resolve, reject) => {
+    setTimeout(function(){
+      resolve(['plates on table', 'cutlery on table']);
+    }, 1000);
   });
 }
 

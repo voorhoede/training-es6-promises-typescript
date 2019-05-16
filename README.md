@@ -9,6 +9,6 @@ $ npm install
 $ npm start
 ```
 
-### Solution
+### Exercise
 
-See [comparison](https://github.com/voorhoede/training-es6-promises-typescript/compare/08-catch-exercise...08-catch-solution?expand=1).
+Set table while making dinner.
