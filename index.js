@@ -30,7 +30,7 @@ function getGroceries(list) {
   setMessage('Getting groceries: <br><br>' + list.join(',<br>'));
   return new Promise((resolve, reject) => {
     if (document.getElementById('outOfSpaghetti').checked) {
-      reject('There\'s no of spaghetti!');
+      reject('There\'s no spaghetti!');
     }
     setTimeout(function(){
       resolve(list);
@@ -59,6 +59,9 @@ function getGroceriesFromStorage(list) {
 }
 
 function makeDinner(ingredients) {
+  if (!ingredients.length) {
+    return reject('<strong style="color:red;">I don\'t have any ingredients, I\'m getting pizza</strong>')
+  }
   setMessage('Making dinner');
   return new Promise((resolve, reject) => {
     setTimeout(function(){
