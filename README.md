@@ -9,6 +9,6 @@ $ npm install
 $ npm start
 ```
 
-### Exercise
+### Solution
 
-getGroceriesFromMarketPlace() or getGroceriesFromStorage() and use whatever is fastest.
+See [comparison](https://github.com/voorhoede/training-es6-promises-typescript/compare/10-promise-race-exercise...10-promise-race-solution?diff=unified&expand=1).
