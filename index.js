@@ -38,6 +38,26 @@ function getGroceries(list) {
   });
 }
 
+function getGroceriesFromMarketPlace(list) {
+  setMessage('getting groceries from marketplace');
+  return new Promise((resolve, reject) => {
+    setTimeout(function(){
+      setMessage('got groceries from marketplace');
+      resolve(list);
+    }, 5000, list);
+  });
+}
+
+function getGroceriesFromStorage(list) {
+  setMessage('getting groceries from storage');
+  return new Promise((resolve, reject) => {
+    setTimeout(function(){
+      setMessage('got groceries from storage');
+      resolve(list);
+    }, 1000, list);
+  });
+}
+
 function makeDinner(ingredients) {
   setMessage('Making dinner');
   return new Promise((resolve, reject) => {

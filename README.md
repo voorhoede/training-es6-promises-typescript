@@ -1,6 +1,6 @@
 # Training ES6, Promises and TypeScript
 
-## Promises: Catch
+## Promises: Promise.race
 
 ### Install
 
@@ -9,6 +9,6 @@ $ npm install
 $ npm start
 ```
 
-### Solution
+### Exercise
 
-See [comparison](https://github.com/voorhoede/training-es6-promises-typescript/compare/09-promise-all-exercise...09-promise-all-solution?expand=1).
+getGroceriesFromMarketPlace() or getGroceriesFromStorage() and use whatever is fastest.
