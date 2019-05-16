@@ -1,5 +1,5 @@
 {
-  "name": "code-class-es6",
+  "name": "training-es6-promises-es6",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "serve"
   },
-  "author": "Peter Goes <petergoes@gmail.com>",
+  "author": "Declan Rek <declan@voorhoede.nl>",
   "license": "ISC",
   "dependencies": {
     "serve": "^11.0.0"
