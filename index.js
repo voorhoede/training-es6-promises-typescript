@@ -11,7 +11,8 @@ var groceryList = [
 button.onclick = function() {
   getGroceries(groceryList)
     .then(groceries => makeDinner(groceries))
-    .then(meal => dinnerIsReady(meal));
+    .then(meal => dinnerIsReady(meal))
+    .then(meal => haveDinner(meal));
 };
 
 function setMessage(message) {
@@ -36,6 +37,26 @@ function makeDinner(ingredients) {
   });
 }
 
+function haveDinner(meal) {
+  setMessage('Having dinner');
+  return new Promise((resolve, reject) => {
+    setTimeout(function(){
+      resolve(['dirty plates', 'empty pan']);
+    }, 2500);
+  });
+}
+
+function cleanUp(mess) {
+  setMessage('Cleaning mess: <br><br>' + mess.join(',<br>'));
+  return new Promise((resolve, reject) => {
+    setTimeout(function(){
+      resolve('The table is clean.');
+    }, 2500);
+  });
+
+}
+
 function dinnerIsReady(meal) {
   setMessage('Dinner is ready: <strong>' + meal + '</strong>');
+  return meal;
 }

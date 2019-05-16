@@ -1,6 +1,6 @@
 # Training ES6, Promises and TypeScript
 
-## Promises: Promisify
+## Promises: Promise chaining
 
 ### Install
 
@@ -9,6 +9,6 @@ $ npm install
 $ npm start
 ```
 
-### Solution
+### Exercise
 
-See [comparison](https://github.com/voorhoede/training-es6-promises-typescript/compare/06-promisify-exercise...06-promisify-solution?expand=1).
+Clean up after.
