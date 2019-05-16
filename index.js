@@ -11,12 +11,14 @@ var groceryList = [
 button.onclick = function() {
   getGroceries(groceryList)
     .catch(problem => tellMom(problem))
-    .then(groceries => makeDinner(groceries))
+    .then(groceries => Promise.all([
+      makeDinner(groceries),
+      setTable()
+    ]))
     .then(meal => dinnerIsReady(meal))
     .then(meal => haveDinner(meal))
     .then(mess => cleanUp(mess))
-    .then(result => setMessage(result))
-    .catch(message => setMessage(message))
+    .then(result => setMessage(result));
 };
 
 function setMessage(message) {
