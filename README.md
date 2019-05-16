@@ -9,6 +9,6 @@ $ npm install
 $ npm start
 ```
 
-### Exercise
+### Solution
 
-Promisify getGroceries in [index.js](./index.js).
+See [comparison](https://github.com/voorhoede/training-es6-promises-typescript/compare/06-promisify-exercise...06-promisify-solution?expand=1).
