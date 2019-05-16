@@ -28,14 +28,18 @@ function setMessage(message) {
 
 function getGroceries(list) {
   setMessage('Getting groceries: <br><br>' + list.join(',<br>'));
-  return new Promise((resolve, reject) => {
-    if (document.getElementById('outOfSpaghetti').checked) {
-      reject('There\'s no spaghetti!');
-    }
-    setTimeout(function(){
-      resolve(list);
-    }, 2500, list);
-  });
+  return Promise.race([
+    getGroceriesFromMarketPlace(list),
+    getGroceriesFromStorage(list)
+  ])
+    .then(groceries => {
+      return new Promise((resolve, reject) => {
+        if (document.getElementById('outOfSpaghetti').checked) {
+          reject('There\'s no spaghetti!');
+        }
+        resolve(groceries);
+      });
+    })
 }
 
 function getGroceriesFromMarketPlace(list) {
@@ -103,7 +107,8 @@ function tellMom(problem) {
   return Promise.resolve([]);
 }
 
-function dinnerIsReady(meal) {
+function dinnerIsReady(values) {
+  const meal = values[0];
   setMessage('Dinner is ready: <strong>' + meal + '</strong>');
   return meal;
 }
