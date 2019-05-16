@@ -1,6 +1,6 @@
 # Training ES6, Promises and TypeScript
 
-## Promises: Catch
+## Promises: Promise.all
 
 ### Install
 
