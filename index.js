@@ -10,11 +10,13 @@ var groceryList = [
 
 button.onclick = function() {
   getGroceries(groceryList)
+    .catch(problem => tellMom(problem))
     .then(groceries => makeDinner(groceries))
     .then(meal => dinnerIsReady(meal))
     .then(meal => haveDinner(meal))
     .then(mess => cleanUp(mess))
-    .then(result => setMessage(result));
+    .then(result => setMessage(result))
+    .catch(message => setMessage(message))
 };
 
 function setMessage(message) {
@@ -25,7 +27,7 @@ function getGroceries(list) {
   setMessage('Getting groceries: <br><br>' + list.join(',<br>'));
   return new Promise((resolve, reject) => {
     if (document.getElementById('outOfSpaghetti').checked) {
-      reject('There\'s no of spaghetti!');
+      reject('There\'s no spaghetti!');
     }
     setTimeout(function(){
       resolve(list);
@@ -34,8 +36,11 @@ function getGroceries(list) {
 }
 
 function makeDinner(ingredients) {
-  setMessage('Making dinner');
   return new Promise((resolve, reject) => {
+    if (!ingredients.length) {
+      return reject('<strong style="color:red;">I don\'t have any ingredients, I\'m getting pizza</strong>')
+    }
+    setMessage('Making dinner');
     setTimeout(function(){
       resolve('Spaghetti Bolognese');
     }, 2500);
