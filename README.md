@@ -9,6 +9,6 @@ $ npm install
 $ npm start
 ```
 
-### Exercise
+### Solution
 
-Set table while making dinner.
+See [comparison](https://github.com/voorhoede/training-es6-promises-typescript/compare/09-promise-all-exercise...09-promise-all-solution?expand=1).
